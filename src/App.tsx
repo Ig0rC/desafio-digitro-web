@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import viteLogo from '/vite.svg'
 import { socket } from './service/socket';
 
 function App() {
@@ -14,6 +13,7 @@ function App() {
         username: 'test',
         maxCalls: 2,
       })
+
       console.log('mit')
     } catch (error) {
       console.log(error)

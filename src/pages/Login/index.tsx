@@ -1,8 +1,34 @@
+import Button from "../../components/Button";
+import FormGroup from "../../components/FormGroup";
+import Input from "../../components/Input";
+import { Container, Form, ButtonContainer } from "./styles";
+
 function Login() {
+  function handleSubmit() {
+    alert('submit')
+  }
   return (
-    <div>
-      Olá mundo
-    </div>
+    <Container>
+      <Form>
+        <FormGroup>
+          <Input placeholder="Usuário" />
+        </FormGroup>
+        <FormGroup>
+          <Input placeholder="Máximo de Chamadas" />
+        </FormGroup>
+
+        <ButtonContainer>
+          <Button 
+            type="submit" 
+            isLoading={false}  
+            disabled={false}  
+            onClick={handleSubmit}
+          >
+            Conectar
+          </Button>
+        </ButtonContainer>
+      </Form>
+    </Container>
   )
 }
 
