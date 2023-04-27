@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {  useContext } from 'react';
 import {
 	Route, 
 	Routes,
@@ -7,10 +7,11 @@ import CallCenter from '../pages/CallCenter';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import Login from '../pages/Login';
+import AuthenticationContext from '../Context/AuthenticationContext';
 
 
 function AppRoutes() {	
-  const isAuthentication = false;
+	const { isAuthentication } = useContext(AuthenticationContext);
 
 	return (
 		<React.Fragment>
