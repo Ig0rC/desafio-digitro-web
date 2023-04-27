@@ -36,7 +36,7 @@ function Timer({ acceptedCallTime, offCallTime }: Props) {
       return () => clearInterval(idInterval)
     } else {
       const time = calcTime(offCallTime, acceptedCallTime)
-      setDuration(`Duração - ${time}`)
+      setDuration(`Chamada Finalizada - Duração de ${time}`)
     }
   }, [acceptedCallTime, offCallTime, calcTime]);
 

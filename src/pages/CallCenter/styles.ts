@@ -1,4 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+
+interface ButtonProps {
+  declined?: boolean;
+}
+
 
 export const Menu = styled.menu`
   width: 100%;
@@ -27,8 +33,7 @@ export const Container = styled.div`
   padding: 0 16px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
-  
+  grid-gap: 10px;  
 
   h2 {
     margin-bottom: 16px;
@@ -39,17 +44,31 @@ export const Container = styled.div`
     padding: 20px;
     border-radius: 4px;
     min-height: 200px;
+    max-height: 800px;
+    overflow-y: scroll;
   }
 
   img {
     width: 38px;
     height: 38px;
   }
+
+  @media (max-width: 780px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const ChatContainer = styled.div`
+  background-color: #FDF4E7;
+  padding: 12px;
+  border-radius: 12px;
+  margin-right: 12px;
 `;
 
 
 export const CardContainer = styled.div`
   position: relative;
+
 
   & + & {
     margin-top: 16px;
@@ -70,22 +89,77 @@ export const CardContainer = styled.div`
     background-color: #ffff;
     border-radius: 4px;
     border: 1px solid #E6ECF2;
-
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .info-card {
+      display: flex;
+      flex: 1;
+      align-items: center;
+    }
+
+    .container-button-option-call {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     .timer {
       font-size: 14px;
     }
   }
+
+  .options {
+    display: flex;
+    align-items: center;
+
+    span {
+      color: ${({ theme }) => theme.colors.danger.dark};
+      font-weight: bold;
+    }
+  }
 `;
 
+
+export const ButtonCall = styled.button<ButtonProps>`
+  height: 52px;
+  padding: 0 16px;
+  border: none;
+  background: ${({ theme }) => theme.colors.success.main};
+  font-size: 16px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
+  color: #FFFFFF;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background 0.2s ease-in;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.success.light};
+  }
+
+  ${({ theme, declined }) => declined && css`
+    background: ${theme.colors.danger.main};
+
+    &:hover {
+    background: ${theme.colors.danger.light};
+    }
+  `}
+
+  & + & {
+    margin-left: 4px
+  }
+`;
 
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-
+  flex-wrap: wrap;
+  
   button {
     background-color: ${({ theme }) => theme.colors.danger.main};
   }
