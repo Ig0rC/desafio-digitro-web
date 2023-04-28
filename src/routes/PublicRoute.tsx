@@ -1,13 +1,14 @@
-import { Navigate, Outlet } from 'react-router-dom';
-
-interface Props {
-  isAuthentication: boolean;
-}
+import { Navigate, Route, Routes } from 'react-router-dom';
+import Login from '../pages/Login';
 
 
-
-function PublicRoute({ isAuthentication }: Props) {  
-	return isAuthentication ? <Navigate to="/" /> :  <Outlet />;
+function PublicRoute() {
+  return (
+    <Routes>
+      <Route path='/login' element={<Login />} />
+      <Route path='*' element={<Navigate to='/login' replace />} />
+    </Routes>
+  );
 }
 
 export default PublicRoute;

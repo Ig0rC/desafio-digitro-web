@@ -18,11 +18,11 @@ interface CallCustom extends Call {
 
 interface AuthenticationContextValues {
   isAuthentication: boolean;
-  signIn: (username: string, maxCalls: number) => void;
-  signOut: () => void;
-  acceptCall: (callId: string) => void;
-  turnOffCall: (callId: string) => void;
-  rejectCall: (callId: string, error: string) => void;
+  signIn(username: string, maxCalls: number): void;
+  signOut(): void;
+  acceptCall(callId: string): void;
+  turnOffCall(callId: string): void;
+  rejectCall(callId: string, error: string): void;
   calls: CallCustom[];
   username: string;
 }
@@ -126,12 +126,12 @@ export function AuthenticationProvider({ children} : Props) {
   }
 
   function userConnected(data: UseConnected) {
+    setIsAuthentication(true)
     setUsername(data.username);
       localStorage.setItem('user', JSON.stringify({
         username: data.username,
         sid: socket.id,
     }))
-    setIsAuthentication(true)
   }
 
   function callEnded(data: CallEnded) {

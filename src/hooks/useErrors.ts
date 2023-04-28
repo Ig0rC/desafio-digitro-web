@@ -6,12 +6,12 @@ interface IErrors {
 }
 
 interface IUseErrors {
-  readonly setError: (field: string, message: string) => void;
-  readonly removeError: (fieldName: string) => void;
-  readonly getErrorMessageByFieldName: (
+  setError(field: string, message: string): void;
+  removeError (fieldName: string): void;
+  getErrorMessageByFieldName(
     fieldName: string,
-  ) => string | undefined;
-  readonly errors: IErrors[];
+  ): string | undefined;
+  errors: IErrors[];
 }
 
 function useErrors(): IUseErrors {

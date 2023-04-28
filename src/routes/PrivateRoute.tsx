@@ -1,13 +1,14 @@
-import { Navigate, Outlet,  } from 'react-router-dom';
-
-interface Props {
-  isAuthentication: boolean;
-}
+import { Navigate, Route, Routes,  } from 'react-router-dom';
+import CallCenter from '../pages/CallCenter';
 
 
-
-function PrivateRoute({ isAuthentication }: Props) {  
-	return isAuthentication ? <Outlet /> : <Navigate to="/login" />;
+function PrivateRoute() {
+  return (
+    <Routes>
+      <Route path='/' element={<CallCenter />} />
+      <Route path='*' element={<Navigate to='/' replace />} />
+    </Routes>
+  );
 }
 
 export default PrivateRoute;

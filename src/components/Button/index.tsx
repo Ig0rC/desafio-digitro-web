@@ -7,7 +7,7 @@ interface Props {
   isLoading: boolean,
   children: React.ReactNode;
   danger?: boolean,
-  onClick?: () => void;
+  onClick?(): void;
 }
 
 function Button({
