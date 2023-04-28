@@ -19,9 +19,7 @@ function Login() {
     signIn(username, Number(maxCalls));
   }
 
-
-
-  const isFormValid = errors.length <= 0 && (!username || !maxCalls);
+  const isFormValid = errors.length <= 0 && Boolean(username) && Boolean(maxCalls);
 
   function handleUsernameChange(e: ChangeEvent<HTMLInputElement>) {
     setUsername(onlyLetters(e.target.value));
@@ -72,7 +70,7 @@ function Login() {
           <Button 
             type="button" 
             isLoading={false}  
-            disabled={isFormValid}  
+            disabled={!isFormValid}  
             onClick={handleSubmit}
           >
             Conectar
