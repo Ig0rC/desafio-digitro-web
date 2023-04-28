@@ -5,7 +5,7 @@ function incrementLeftZero(value: number) {
   return value;
 }
 
-function maskDate(value: string): string {
+function maskDate(value: Date): string {
   const date = new Date(value);
 
   const formatDate = `${incrementLeftZero(date.getDate())}/${incrementLeftZero(

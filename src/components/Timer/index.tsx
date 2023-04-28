@@ -2,8 +2,8 @@ import { useEffect, useState, useCallback } from 'react';
 
 
 interface Props {
-  acceptedCallTime: Date,
-  offCallTime?: Date,
+  acceptedCallTime: Date | null,
+  offCallTime?: Date | null,
 }
 
 function Timer({ acceptedCallTime, offCallTime }: Props) {
@@ -26,7 +26,7 @@ function Timer({ acceptedCallTime, offCallTime }: Props) {
 
 
   useEffect(() => {
-    if(!offCallTime) {
+    if(!offCallTime && acceptedCallTime) {
       const idInterval = setInterval(() => {
         const today = new Date();
         const time = calcTime(today, acceptedCallTime)
@@ -34,7 +34,9 @@ function Timer({ acceptedCallTime, offCallTime }: Props) {
       }, 1000)
   
       return () => clearInterval(idInterval)
-    } else {
+    } 
+
+    if(offCallTime && acceptedCallTime) {
       const time = calcTime(offCallTime, acceptedCallTime)
       setDuration(`Chamada Finalizada - Duração de ${time}`)
     }

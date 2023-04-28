@@ -12,8 +12,8 @@ import { UserDisconnected } from '../service/socket/interfaces/UserDisconnected'
 interface CallCustom extends Call {
   acceptedCallTime: Date | null;
   offCallTime: Date | null;
-  accepted: boolean;
   rejectCall: boolean;
+  error: string | null;
 }
 
 interface AuthenticationContextValues {
@@ -114,8 +114,8 @@ export function AuthenticationProvider({ children} : Props) {
       ...data,
       acceptedCallTime: null,
       offCallTime: null,
-      accepted: false,
       rejectCall: false,
+      error: null,
     }])
   }
 
