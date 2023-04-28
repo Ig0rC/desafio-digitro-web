@@ -1,3 +1,4 @@
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import AppRoutes from './AppRoutes';
 import { BrowserRouter } from 'react-router-dom';

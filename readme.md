@@ -13,10 +13,8 @@ Desafio web proposto para analisar o nível do canditado.
 npm install ou yarn
 ```
 
-### Etapa 02: Manual de execução
-O projeto pode ser executado em duas formas:
+### Etapa 02: Manual de execução do aplicativo
 
-A primeira é
 ```bash
 # 1 - Inicializar a aplicação:
 npm run dev ou yarn dev
