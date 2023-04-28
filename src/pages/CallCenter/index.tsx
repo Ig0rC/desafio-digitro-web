@@ -79,7 +79,6 @@ function CallCenter() {
           </div>
         )}
       </DashboardCall>
-
     </div>
   )
 }
