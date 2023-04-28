@@ -13,7 +13,7 @@ Desafio web proposto para analisar o nível do canditado.
 npm install ou yarn
 ```
 
-### Etapa 02: Manual de execução
+### Etapa 02: Manual de execução do aplicativo
 
 ```bash
 # 1 - Inicializar a aplicação:
